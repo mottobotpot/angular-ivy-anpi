@@ -11,11 +11,11 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id:1,
         name:'【地震】青森県東方沖地震',
-        resItems:[
+        items:[
           {
             id:1,
             name:'本人の安否',
-            resItem:[
+            item:[
               { id: 1, name: '安全' },
               { id: 2, name: '軽傷' },
               { id: 3, name: '重傷' }
@@ -24,7 +24,7 @@ export class InMemoryDataService implements InMemoryDbService {
           {
             id:2,
             name:'家族の安否',
-            resItem:[
+            item:[
               { id: 1, name: '全員無事' },
               { id: 2, name: '負傷者がいる' },
               { id: 3, name: '不明者がいる' },
@@ -35,7 +35,7 @@ export class InMemoryDataService implements InMemoryDbService {
           {
             id:3,
             name:'出社可否',
-            resItem:[
+            item:[
               { id: 1, name: '出社できない' },
               { id: 2, name: '1時間以内に出社できる' },
               { id: 3, name: '3時間以内に出社できる' },
@@ -45,7 +45,7 @@ export class InMemoryDataService implements InMemoryDbService {
           {
             id:4,
             name:'家屋の状態',
-            resItem:[
+            item:[
               { id: 1, name: 'わからない' },
               { id: 2, name: '無事' },
               { id: 3, name: '半壊' },
@@ -54,7 +54,7 @@ export class InMemoryDataService implements InMemoryDbService {
           }
         ]
       }
-    ];;
+    ];
     return {incidents};
   }
 

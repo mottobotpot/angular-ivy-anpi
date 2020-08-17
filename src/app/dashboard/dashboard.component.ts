@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
 
   getIncidents(): void {
     this.incidentService.getIncidents()
-      .subscribe(incidents => this.incidents = incidents.slice(1, 5));
+      .subscribe(incidents => this.incidents);
   }
 }
 

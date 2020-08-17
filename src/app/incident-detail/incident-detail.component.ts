@@ -7,7 +7,7 @@ import { IncidentService } from '../incident.service';
 
 @Component({
   selector: 'app-incident-detail',
-  templateUrl: './incident-detail2.component.html',
+  templateUrl: './incident-detail.component.html',
   styleUrls: [ './incident-detail.component.css' ]
 })
 export class IncidentDetailComponent implements OnInit {
@@ -17,7 +17,11 @@ export class IncidentDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private incidentService: IncidentService,
     private location: Location
-  ) {}
+  ) {
+      this.getIncident();
+      console.log(this.incident);
+
+  }
 
   ngOnInit(): void {
     this.getIncident();

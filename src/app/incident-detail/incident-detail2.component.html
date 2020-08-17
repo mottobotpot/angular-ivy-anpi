@@ -67,17 +67,16 @@
                 </div>
               </div>
 
-             
+              
               <div class="pc-wrapper mt30">
                 <table class="clear-table form-table">
                   <tbody>
-                    <ng-container *ngFor="let items of incident.resItems; index as i">
                     <tr>
-                      <th class="wd240px">{{items.name}}<span class="tag required">必須</span></th>
+                      <th class="wd240px">本人の安否<span class="tag required">必須</span></th>
                       <td>
-                        <div class="input-wrap panel-block-wrap col3" role="radiogroup" aria-label=items.name>
+                        <div class="input-wrap panel-block-wrap col3" role="radiogroup" aria-label="本人の安否">
 
-                      <ng-container *ngFor="let item of items.resItem; index as j">
+                      <ng-container *ngFor="let item of data; index as i">
                         
                         <div class="panel-block border">
                         <label for="userSafety">
@@ -88,7 +87,7 @@
                           >                          <span class="panel-block-content">
                             <span class="panel-icon"></span>
 
-                            <span class="panel-txt">{{item.name}}</span>
+                            <span class="panel-txt">{{item.label}}</span>
                           </span>
                         </label>
                         </div>
@@ -96,7 +95,76 @@
                         </div>
                       </td>
                     </tr>
-                    </ng-container>
+                    <tr>
+                      <th class="wd240px">家族の安否<span class="tag required">必須</span></th>
+                      <td>
+                        <div class="input-wrap panel-block-wrap col3" role="radiogroup" aria-label="家族の安否">
+
+                      <ng-container *ngFor="let item of data2; index as i">
+                        
+                        <div class="panel-block border">
+                        <label for="familySafety">
+                          <input type="radio" name="familySafety"
+                            [(ngModel)]="familySafety"
+                            [value]="item.value" 
+                            [checked]="familySafety == item.value"
+                          >                          <span class="panel-block-content">
+                            <span class="panel-icon"></span>
+
+                            <span class="panel-txt">{{item.label}}</span>
+                          </span>
+                        </label>
+                        </div>
+                      </ng-container>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="wd240px">出社の可否<span class="tag required">必須</span></th>
+                      <td>
+                        <div class="input-wrap panel-block-wrap col3" role="radiogroup" aria-label="出社の可否">
+
+                      <ng-container *ngFor="let item of data3; index as i">
+                        
+                        <div class="panel-block border">
+                        <label for="workStatus">
+                          <input type="radio" name="workStatus"
+                            [(ngModel)]="workStatus"
+                            [value]="item.value" 
+                            [checked]="workStatus == item.value"
+                          >                          <span class="panel-block-content">
+                            <span class="panel-icon"></span>
+
+                            <span class="panel-txt">{{item.label}}</span>
+                          </span>
+                        </label>
+                        </div>
+                      </ng-container>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="wd240px">家屋の状態<span class="tag required">必須</span></th>
+                      <td>
+                        <div class="input-wrap panel-block-wrap col3" role="radiogroup" aria-label="家屋の状態">
+                      <ng-container *ngFor="let item of data4; index as i"> 
+                        <div class="panel-block border">
+                        <label for="houseStatus">
+                          <input type="radio" name="houseStatus"
+                            [(ngModel)]="houseStatus"
+                            [value]="item.value" 
+                            [checked]="houseStatus == item.value"
+                          >
+                          <span class="panel-block-content">
+                          <span class="panel-icon"></span>
+                          <span class="panel-txt">{{item.label}}</span>
+                          </span>
+                        </label>
+                        </div>
+                      </ng-container>
+                        </div>
+                      </td>
+                    </tr>
                     <tr>
                       <th>コメント</th>
                       <td>
