@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>U-300-03 安否報告_安否報告登録</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="format-detection" content="telephone=no">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="assets/images/favicon.ico" type="image/vnd.microsoft.icon">
+
+  <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+
+  <!--#include virtual="/inc/header.html"-->
+  <main class="l-main" id="l-main">
+    <div class="page-cover">
+      <div class="page">
+        <section class="page-top">
+          <form #myForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+          <div class="inner">
+            <h1 class="page-heading1 mb9">安否報告</h1>
+            <div class="flow-ttl-wrap full-width-sp">
+              <ol class="progress-bar step2 col2">
+                <li class="progress"><span class="progress-dot"></span></li>
+                <li class="progress"><span class="progress-dot"></span></li>
+              </ol>
+              <p class="flow-ttl"><span>STEP2</span>安否状況入力</p>
+            </div>
+            <div class="proxy-user border-bottom with-btn">
+              <p><span class="proxy-user-strong">安否 太郎 さん<br class="is-sp">（社員コード：12345678）</span>の安否を代理で報告します。</p>
+              <div class="btn-wrap">
+                <button class="btn-general btn-icon-right">注意事項を確認する<span class="icon-modal_bold"></span></button>
+              </div>
+            </div>
+            <p class="page-leading">代理で安否を報告する災害を選択し、必要項目を入力のうえ「確認する」を押してください。<br>
+              <span class="txt-error fw-bold">必須項目は5問あります。</span>
+            </p>
+
+            <div class="page-content">
+
+              <div>
+                <h2 class="page-heading3">報告する災害</h2>
+                <ul class="arrow-panel-list disaster full-width-sp">
+                  <li>
+                    <div class="arrow-panel">
+                      <div class="arrow-panel-inner">
+                        <div class="arrow-panel-top">
+                          <p class="date-txt">発生日時：2020-05-20 15:00</p>
+                        </div>
+                        <div class="arrow-panel-btm">
+                          <p class="arrow-panel-ttl">【地震】青森県東方沖地震</p>
+                        </div>
+                        <div class="link"><a href="#">詳細</a><i class="icon-modal_bold"></i></div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="mt15 txt-right">
+                  <a href="">報告する災害を選択しなおす</a>
+                </div>
+              </div>
+
+             
+              <div class="pc-wrapper mt30">
+                <table class="clear-table form-table">
+                  <tbody>
+                    <ng-container *ngFor="let items of incident.resItems; index as i">
+                    <tr>
+                      <th class="wd240px">{{items.name}}<span class="tag required">必須</span></th>
+                      <td>
+                        <div class="input-wrap panel-block-wrap col3" role="radiogroup" aria-label=items.name>
+
+                      <ng-container *ngFor="let item of items.resItem; index as j">
+                        
+                        <div class="panel-block border">
+                        <label for="userSafety">
+                          <input type="radio" name="userSafety"
+                            [(ngModel)]="userSafety"
+                            [value]="item.value" 
+                            [checked]="userSafety == item.value"
+                          >                          <span class="panel-block-content">
+                            <span class="panel-icon"></span>
+
+                            <span class="panel-txt">{{item.name}}</span>
+                          </span>
+                        </label>
+                        </div>
+                      </ng-container>
+                        </div>
+                      </td>
+                    </tr>
+                    </ng-container>
+                    <tr>
+                      <th>コメント</th>
+                      <td>
+                        <div class="input-wrap">
+                          <textarea name="comment" id="" cols="30" rows="10" placeholder="コメントを入力してください"></textarea>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-none">
+                      <td colspan="2">
+                        <div class="location-info full-width-sp">
+                          <p>位置情報を報告する場合は選択してください。</p>
+                            <div class="panel-block simple">
+                              <label for="geo">
+                                <input type="checkbox" name="geo" id="geo" title="フォームテキスト">
+                                <span class="panel-block-content">
+                                  <span class="panel-icon"></span>
+                                  <span class="panel-txt">現在地の位置情報を報告する</span>
+                                </span>
+                              </label>
+                            </div>
+                        </div>
+                        <p class="sml-txt mt12">※位置情報の利用を許可してください。</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="btn-wrap center reverse mt24">
+                <button class="btn-primary btn-icon-right">報告する<span class="icon-arrow_right"></span></button>
+                <button class="btn-secondary btn-icon-left">報告対象者を選び直す<span class="icon-arrow_left"></span></button>
+              </div>
+            </div>
+
+          </div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="l-footer border">
+    <div class="footer-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ul>
+          <li><a href="">サービストップ</a></li>
+          <li><a href="">代理報告（報告対象者検索）</a></li>
+          <li><a href="">代理報告（災害選択）</a></li>
+          <li>代理報告（安否状況入力）</li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+
+<script src="assets/js/polyfill.js"></script>
+<script src="assets/js/common.js"></script>
+</html>

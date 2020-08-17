@@ -7,7 +7,7 @@ import { IncidentService } from '../incident.service';
 
 @Component({
   selector: 'app-incident-detail',
-  templateUrl: './incident-detail.component.html',
+  templateUrl: './incident-detail2.component.html',
   styleUrls: [ './incident-detail.component.css' ]
 })
 export class IncidentDetailComponent implements OnInit {

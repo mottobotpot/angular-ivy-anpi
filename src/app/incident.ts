@@ -1,6 +1,9 @@
+import { Response } from './response';
+
 export interface Incident {
   id: number;
   name: string;
+  resItems: Response[];
 }
 
 

@@ -8,17 +8,53 @@ import { Incident } from './incident';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const incidents = [
-      { id: 11, name: 'Dr Nice' },
-      { id: 12, name: 'Narco' },
-      { id: 13, name: 'Bombasto' },
-      { id: 14, name: 'Celeritas' },
-      { id: 15, name: 'Magneta' },
-      { id: 16, name: 'RubberMan' },
-      { id: 17, name: 'Dynama' },
-      { id: 18, name: 'Dr IQ' },
-      { id: 19, name: 'Magma' },
-      { id: 20, name: 'Tornado' }
-    ];
+      {
+        id:1,
+        name:'【地震】青森県東方沖地震',
+        resItems:[
+          {
+            id:1,
+            name:'本人の安否',
+            resItem:[
+              { id: 1, name: '安全' },
+              { id: 2, name: '軽傷' },
+              { id: 3, name: '重傷' }
+            ]
+          },
+          {
+            id:2,
+            name:'家族の安否',
+            resItem:[
+              { id: 1, name: '全員無事' },
+              { id: 2, name: '負傷者がいる' },
+              { id: 3, name: '不明者がいる' },
+              { id: 4, name: '重大な事故がある' },
+              { id: 5, name: 'わからない' }
+            ]
+          },
+          {
+            id:3,
+            name:'出社可否',
+            resItem:[
+              { id: 1, name: '出社できない' },
+              { id: 2, name: '1時間以内に出社できる' },
+              { id: 3, name: '3時間以内に出社できる' },
+              { id: 4, name: '出社済み' }
+            ]
+          },
+          {
+            id:4,
+            name:'家屋の状態',
+            resItem:[
+              { id: 1, name: 'わからない' },
+              { id: 2, name: '無事' },
+              { id: 3, name: '半壊' },
+              { id: 4, name: '全壊' }
+            ]
+          }
+        ]
+      }
+    ];;
     return {incidents};
   }
 
