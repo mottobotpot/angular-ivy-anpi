@@ -4,14 +4,16 @@ import { Location } from '@angular/common';
 
 import { Incident } from '../incident';
 import { IncidentService } from '../incident.service';
+import { Response } from '../response';
 
 @Component({
   selector: 'app-incident-detail',
-  templateUrl: './incident-detail.component.html',
+  templateUrl: './incident-detail2.component.html',
   styleUrls: [ './incident-detail.component.css' ]
 })
 export class IncidentDetailComponent implements OnInit {
   @Input() incident: Incident;
+  items:Response = this.incident.items;
 
   constructor(
     private route: ActivatedRoute,
